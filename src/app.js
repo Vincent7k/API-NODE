@@ -1,4 +1,15 @@
  import express from 'express';
+ import connectDataBase from './config/dbConnect.js';
+
+ const connection = await connectDataBase();
+
+ connection.on("error", (error) =>{
+    console.log("You dumbass, you messed up again!", error);
+ });
+
+ connection.once("open", (open) =>{
+    console.log("No shit, you made it right this time!", open);
+ });
 
 const app = express();
 app.use(express.json());
@@ -19,7 +30,7 @@ function findDog(id) {
         return dog.id === Number(id);
     });
 }
-
+//Instalar uma biblioteca específica @+nº da versão exemplo @3.2.1
 // C create
 // R read
 // U update
