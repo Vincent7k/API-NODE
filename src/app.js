@@ -39,9 +39,9 @@ app.use(express.json());
 
  //anotação array conchetes
  //anotação dos objetos {}
-app.get('/',(req, res) => {
-    res.status(200).send('Node.js course')
-});
+// app.get('/',(req, res) => {
+//     res.status(200).send('Node.js course')
+// });
 
 // app.get('/dogs', async (req, res) =>{
 //    const dogsList = await dogs.find({})
