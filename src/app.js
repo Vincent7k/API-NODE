@@ -1,5 +1,6 @@
  import express from 'express';
  import connectDataBase from './config/dbConnect.js';
+ import dogs from "./models/Dogs.js";
 
  const connection = await connectDataBase();
 
@@ -14,22 +15,22 @@
 const app = express();
 app.use(express.json());
 
-const dogs = [
-    {
-        id: 1,
-        race: 'Bull Dog',
-    },
-    {
-        id: 2,
-        race: 'PitBull',
-    },
-];
+// const dogs = [
+//     {
+//         id: 1,
+//         race: 'Bull Dog',
+//     },
+//     {
+//         id: 2,
+//         race: 'PitBull',
+//     },
+// ];
 
-function findDog(id) {
-    return dogs.findIndex(dog =>{
-        return dog.id === Number(id);
-    });
-}
+// function findDog(id) {
+//     return dogs.findIndex(dog =>{
+//         return dog.id === Number(id);
+//     });
+// }
 //Instalar uma biblioteca específica @+nº da versão exemplo @3.2.1
 // C create
 // R read
@@ -42,13 +43,9 @@ app.get('/',(req, res) => {
     res.status(200).send('Node.js course')
 });
 
-app.get('/dogs', (req,res) =>{
-    res.status(201).send(dogs);
-});
-
-app.post('/dogs', (req, res) =>{
-    dogs.push(req.body);
-    res.status(200).send('Dogs sucesfully inserted')
+app.get('/dogs', async (req, res) =>{
+   const dogsList = await dogs.find({})
+    res.status(200).json(dogsList)
 });
 
 app.get("/dogs/:id", (req, res) =>{
