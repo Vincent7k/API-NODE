@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const cachorroSchema = new mongoose.Schema(
+const dogsSchema = new mongoose.Schema(
     {
         id: {type: mongoose.Schema.Types.ObjectId},
         name: {type: String, required: true},

@@ -1,6 +1,6 @@
 // import http from 'http';
 import app from './src/app.js';
-const PORT = 3000;
+import "dotenv/config";
 
 // const routes = {
 //     "/": "Node.js course",
@@ -13,6 +13,6 @@ const PORT = 3000;
 //     res.end(routes[req.url]);
 // });
 
-    app.listen(PORT, () =>{
+    app.listen(process.env.PORT, () =>{
         console.log('server OK')
     })

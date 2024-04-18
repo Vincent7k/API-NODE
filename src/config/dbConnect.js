@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
+import "dotenv/config"
 
-async function connectDataBase(){
-    mongoose.connect("mongodb+srv://admin:admin@cluster0.x5djbhi.mongodb.net/dbSenacPetshop?retryWrites=true&w=majority&appName=Cluster0");
+async function connectDataBase() {
+mongoose.connect(process.env.DB_CONNECTION_STRING);
+
     return mongoose.connection;
 }
 
