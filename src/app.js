@@ -43,10 +43,10 @@ app.get('/',(req, res) => {
     res.status(200).send('Node.js course')
 });
 
-app.get('/dogs', async (req, res) =>{
-   const dogsList = await dogs.find({})
-    res.status(200).json(dogsList)
-});
+// app.get('/dogs', async (req, res) =>{
+//    const dogsList = await dogs.find({})
+//     res.status(200).json(dogsList)
+// });
 
 app.get("/dogs/:id", (req, res) =>{
     const index = findDog(req.params.id);
