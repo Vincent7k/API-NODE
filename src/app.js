@@ -1,6 +1,6 @@
  import express from 'express';
  import connectDataBase from './config/dbConnect.js';
- import dogs from "./models/Dogs.js";
+ import routes from './routes/index.js';
 
  const connection = await connectDataBase();
 
@@ -13,7 +13,7 @@
  });
 
 const app = express();
-app.use(express.json());
+routes(app);
 
 // const dogs = [
 //     {
