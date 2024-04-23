@@ -13,6 +13,6 @@ import "dotenv/config";
 //     res.end(routes[req.url]);
 // });
 
-    app.listen(process.env.PORT, () =>{
+    app.listen(3000, () =>{
         console.log('server OK')
     })
