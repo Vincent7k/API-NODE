@@ -9,7 +9,7 @@
  });
 
  connection.once("open", (open) =>{
-    console.log("No shit, you made it right this time!", open);
+    console.log("No shit, you made it right this time!");
  });
 
 const app = express();
@@ -48,23 +48,23 @@ routes(app);
 //     res.status(200).json(dogsList)
 // });
 
-app.get("/dogs/:id", (req, res) =>{
-    const index = findDog(req.params.id);
-    res.status(200).json(dogs[index]);
-});
+// app.get("/dogs/:id", (req, res) =>{
+//     const index = findDog(req.params.id);
+//     res.status(200).json(dogs[index]);
+// });
 
-app.put('/dogs/:id', (req, res) => {
-    const index = findDog(req.params.id);
-    dogs[index].race = req.body.race;
-    res.status(200).json(dogs)
-})
+// app.put('/dogs/:id', (req, res) => {
+//     const index = findDog(req.params.id);
+//     dogs[index].race = req.body.race;
+//     res.status(200).json(dogs)
+// })
 
-app.delete('/dogs/:id', (req, res) => {
-    const index = findDog(req.params.id);
-    dogs.splice(index, 1);
-    res.status(200).send('Dog deleted')
+// app.delete('/dogs/:id', (req, res) => {
+//     const index = findDog(req.params.id);
+//     dogs.splice(index, 1);
+//     res.status(200).send('Dog deleted')
     
-})
+// })
 
 
 export default app;
